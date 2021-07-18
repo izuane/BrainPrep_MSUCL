@@ -57,20 +57,10 @@ for ISBI_DIR in [ISBI_TRAIN_DIR, ISBI_TEST_DIR]:
     data_dir = os.path.join(parent_dir, "data")
     data_src_dir = os.path.join(data_dir, ISBI_DIR)
     data_dst_dir = os.path.join(data_dir, "{0}_reg".format(ISBI_DIR))
-    #data_labels = ["AD", "NC"]
     create_dir(data_dst_dir)
 
     ref_path = os.path.join(data_dir, "Template", "MNI152_T1_1mm.nii.gz")
     # ref_path = os.path.join(data_dir, "Template", "MNI152_T1_1mm_brain.nii.gz")
-
-    # data_src_paths, data_dst_paths = [], []
-    # for label in data_labels:
-    #     src_label_dir = os.path.join(data_src_dir, label)
-    #     dst_label_dir = os.path.join(data_dst_dir, label)
-    #     create_dir(dst_label_dir)
-    #     for subject in os.listdir(src_label_dir):
-    #         data_src_paths.append(os.path.join(src_label_dir, subject))
-    #         data_dst_paths.append(os.path.join(dst_label_dir, subject))
 
     # Create the 01_01, etc. folder structure from data_src_dir, but in data_dst_dir
     data_src_paths, data_dst_paths = [], []
@@ -85,9 +75,6 @@ for ISBI_DIR in [ISBI_TRAIN_DIR, ISBI_TEST_DIR]:
             data_src_paths.append(f_src_path)
             data_dst_paths.append(f_dst_path)
 
-
-    print()
-    #raise Exception("STOP")
 
     # Test
     # main(data_src_paths[0], data_dst_paths[0], ref_path)
