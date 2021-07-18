@@ -50,6 +50,7 @@ for ISBI_DIR in [ISBI_TRAIN_DIR, ISBI_TEST_DIR]:
             f_dst_path = os.path.join(dst_dir, f)
             data_src_paths.append(f_src_path)
             data_dst_paths.append(f_dst_path)
+            
     # Test
     # strip_skull(data_src_paths[0], data_dst_paths[0])
 
