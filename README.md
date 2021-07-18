@@ -21,6 +21,8 @@ All required libraries are listed as below:
 - sciKit-fuzzy (optional)
 - scikit-learn (optional)
 
+Install dependencies by running `$ pip install -r requirements.txt`
+
 ## 3. Download Dataset
 
 The dataset used in this repo is AD and NC screening images of ADNI1 and ADNI2.  
