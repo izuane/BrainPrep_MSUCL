@@ -1,0 +1,8 @@
+tqdm
+numpy
+scipy
+nipype
+nibabel
+matplotlib
+sciKit-fuzzy
+scikit-learn
