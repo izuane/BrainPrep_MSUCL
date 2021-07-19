@@ -3,6 +3,7 @@ from __future__ import print_function
 import os
 from multiprocessing import Pool, cpu_count
 from nipype.interfaces.ants.segmentation import N4BiasFieldCorrection
+import shutil
 
 ISBI_TRAIN_DIR = 'ISBI_train'
 ISBI_TEST_DIR = 'ISBI_test'
@@ -51,6 +52,12 @@ for ISBI_DIR in [ISBI_TRAIN_DIR, ISBI_TEST_DIR]:
         for f in os.listdir(src_dir):
             f_src_path = os.path.join(src_dir, f)
             f_dst_path = os.path.join(dst_dir, f)
+
+            # Skip if "mask" is  substring of f
+            if f.find('mask') != -1:
+                shutil.copyfile(f_src_path, f_dst_path)
+                continue
+
             data_src_paths.append(f_src_path)
             data_dst_paths.append(f_dst_path)
 

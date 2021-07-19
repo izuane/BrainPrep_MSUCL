@@ -44,28 +44,29 @@ for sub_dir, dirs, files in os.walk(data_dir):
             ext = '.{0}.{1}'.format(ext[1], ext[2])
         
         
-        # Only look at the original/unprocessed MR scans
+        # Only look at the original/unprocessed MR scans and their corresponding masks
         dir = sub_dir.split('/')[-1]
-        if dir == 'orig':
+        if (dir != 'orig') and (dir != 'masks'):
+            continue
 
-            # Find out if the "orig" directory we're in is for the training data or test data
-            dir = sub_dir.split('/')[-3]
-            is_train_dir = (dir == 'train')
+        # Find out if the "orig" directory we're in is for the training data or test data
+        dir = sub_dir.split('/')[-3]
+        is_train_dir = (dir == 'train')
 
-            if (ext == NII_EXT) or (ext == NII_GZ_EXT):
-                    f_path = os.path.join(sub_dir, f)
+        if (ext == NII_EXT) or (ext == NII_GZ_EXT):
+            f_path = os.path.join(sub_dir, f)
 
-                    # Create 01_01, 01_02, etc. dirs in ISBI_TRAIN_DIR or ISBI_TEST_DIR and copy respect files over to this
+            # Create 01_01, 01_02, etc. dirs in ISBI_TRAIN_DIR or ISBI_TEST_DIR and copy respect files over to this
 
-                    subject, scan_num, _  = f.split('_')
-                    subject_num = subject[-2] + subject[-1]
+            subject, scan_num, _  = f.split('_')
+            subject_num = subject[-2] + subject[-1]
 
-                    if is_train_dir:
-                        out_f_dir = os.path.join(data_dir, ISBI_TRAIN_DIR, '{0}_{1}'.format(subject_num, scan_num))
-                    else:
-                        out_f_dir = os.path.join(data_dir, ISBI_TEST_DIR, '{0}_{1}'.format(subject_num, scan_num))
-                    create_dir(out_f_dir)
+            if is_train_dir:
+                out_f_dir = os.path.join(data_dir, ISBI_TRAIN_DIR, '{0}_{1}'.format(subject_num, scan_num))
+            else:
+                out_f_dir = os.path.join(data_dir, ISBI_TEST_DIR, '{0}_{1}'.format(subject_num, scan_num))
+            create_dir(out_f_dir)
 
-                    out_f_path = os.path.join(out_f_dir, f)
+            out_f_path = os.path.join(out_f_dir, f)
 
-                    shutil.copyfile(f_path, out_f_path)
+            shutil.copyfile(f_path, out_f_path)

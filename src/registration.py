@@ -1,7 +1,9 @@
 import os
+import shutil
 import subprocess
 import matplotlib.pyplot as plt
 from multiprocessing import Pool, cpu_count
+import re
 
 ISBI_TRAIN_DIR = 'ISBI_train'
 ISBI_TEST_DIR = 'ISBI_test'
@@ -72,9 +74,17 @@ for ISBI_DIR in [ISBI_TRAIN_DIR, ISBI_TEST_DIR]:
         for f in os.listdir(src_dir):
             f_src_path = os.path.join(src_dir, f)
             f_dst_path = os.path.join(dst_dir, f)
+
+            # We must perform registration on mask to ensure MRIs and mask are same dimensions
+            # That said, in subsequent processes (e.g. skull_stripping) we leave mask unchanged.
+
+            # Skip if "mask" is  substring of f
+            # if f.find('mask') != -1:
+            #     shutil.copyfile(f_src_path, f_dst_path)
+            #     continue
+
             data_src_paths.append(f_src_path)
             data_dst_paths.append(f_dst_path)
-
 
     # Test
     # main(data_src_paths[0], data_dst_paths[0], ref_path)
