@@ -1,5 +1,39 @@
 Note: This is a fork of BrainPrep (link: https://github.com/quqixun/BrainPrep) with the main difference being that I have tweaked this to handle the ISBI2015 dataset (link: https://smart-stats-tools.org/lesion-challenge-2015) instead of ADNI which the original BrainPrep handles.
 
+**Expected file structure for reorganize.py**
+
+* /data
+  * /train
+    * /orig 
+      * /patient_1
+        * [various .nii files]
+      * /patient_2
+        * [various .nii files]
+      * ...
+    * /mask
+      * /patient_1
+        * [various .nii files]
+      * ...
+      
+  * /test
+    * /orig
+      * /patient_1
+        * [various .nii files]
+      * ...
+
+**Output file structure for reorganize.py**
+
+* /data
+
+  * /new_train
+    * /patient_1
+      * [various .nii files]
+    * ...
+
+  * /new_test
+    * /patient_1
+      * [various .nii files]
+    * ...
 
 # Preprocessing on Brain MRI Sequence
 
