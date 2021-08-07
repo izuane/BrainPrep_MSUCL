@@ -1,4 +1,4 @@
-Note: This is a fork of BrainPrep (link: https://github.com/quqixun/BrainPrep) with the main difference being that I have tweaked this to handle the ISBI dataset (link: https://smart-stats-tools.org/lesion-challenge-2015) instead of ADNI which the original BrainPrep handles.
+Note: This is a fork of BrainPrep (link: https://github.com/quqixun/BrainPrep) with the main difference being that I have tweaked this to handle the ISBI2015 dataset (link: https://smart-stats-tools.org/lesion-challenge-2015) instead of ADNI which the original BrainPrep handles.
 
 
 # Preprocessing on Brain MRI Sequence
