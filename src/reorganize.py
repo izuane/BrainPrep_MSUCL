@@ -25,6 +25,11 @@ def create_dir(path):
         os.makedirs(path)
     return
 
+'''
+This scripts looks in ./data for folders /orig and /masks. It then copies contents of /orig and /masks into new folders
+ISBI_TRAIN_DIR and ISBI_TEST_DIR, but renames them in format [PATIENT ID]_[MRI SCAN NUMBER] e.g.: 01_01 for patient 1, scan 1.
+'''
+
 parent_dir = os.path.dirname(os.getcwd())
 data_dir = os.path.join(parent_dir, "data")
 
