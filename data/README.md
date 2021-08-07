@@ -4,7 +4,7 @@ This directory contains original input, and output of every step would also appe
 
 ## Dataset
 
-Note: you should first obtain the train and test data for the ISBI challenge (link: https://smart-stats-tools.org/lesion-challenge-2015) and put the respective folders in this /data directory.
+Note: you should first obtain the train and test data for the ISBI2015 challenge (link: https://smart-stats-tools.org/lesion-challenge-2015) and put the respective folders in this /data directory.
 
 ## Template
 
